@@ -1,0 +1,19 @@
+{
+  "name": "iplayer-az",
+  "version": "1.0.0",
+  "description": "iPlayer A to Z listing",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakubfiala/iplayer-az.git"
+  },
+  "author": "jakubfiala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakubfiala/iplayer-az/issues"
+  },
+  "homepage": "https://github.com/jakubfiala/iplayer-az#readme"
+}
