@@ -8,6 +8,7 @@ var app = express();
 var __test = global.jasmine;
 
 if (!__test) console.log('Setting up server ...');
+app.set('port', (process.env.PORT || 5000));
 app.set('views', './views');
 app.set('view engine', 'pug');
 
@@ -25,7 +26,7 @@ app.get('/:letter', server.letter);
 app.get('/:letter/:page', server.letter_page);
 app.use(server.p404);
 
-var session = app.listen(3000, function() {
+var session = app.listen(app.get('port'), function() {
 	if (!__test) console.log('Server initialized.');
 });
 //make a close export function, so that we can close the server after testing

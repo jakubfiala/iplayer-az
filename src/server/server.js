@@ -7,6 +7,7 @@ var generatePagination = require('../../lib/generatePagination.js');
 const imgRes = '406x228';
 const alphabetLength = 26;
 
+//this function is used to render the programme list for a particular letter and page
 function renderList(res, data, numPages, currentLetter, currentPage) {
 	res.render('index', {
 		title: 'iPlayer A to Z',
@@ -18,6 +19,7 @@ function renderList(res, data, numPages, currentLetter, currentPage) {
 	});
 }
 
+//middleware functions for each possible route
 module.exports['root'] = function(req, res) {
 	loadData('A', 1, imgRes, function(data, numPages) {
 		renderList(res, data, numPages, 'A', 1);
@@ -35,7 +37,7 @@ module.exports['letter_page'] = function(req, res, next) {
 		renderList(res, data, numPages, req.params.letter, req.params.page);
 	});
 }
-
+//this one is special – doesn't render a list
 module.exports['p404'] = function(req, res) {
 	res.status(404).render('404', {
 		title: 'iPlayer A to Z - Not Found'
