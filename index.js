@@ -1,7 +1,12 @@
 var express = require('express');
 
+
 var app = express();
 
+// check if we're in test mode
+var __test = global.jasmine;
+
+if (!__test) console.log('Defining routes...');
 app.get('/', function(req, res) {
 	res.status(200).send('Hello');
 });
@@ -11,7 +16,7 @@ app.use(function(req, res) {
 });
 
 var server = app.listen(3000, function() {
-	console.log('Server initialized');
+	if (!__test) console.log('Server initialized.');
 });
 
 exports.close = function() {
