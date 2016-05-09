@@ -1,0 +1,127 @@
+@import 'mixins.less';
+
+@iplayer-pink: #F44195;
+@iplayer-front: #EEEEEE;
+@iplayer-back: #252525;
+@iplayer-medium: #323232;
+
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	color: @iplayer-front;
+	background-color: @iplayer-back;
+	-webkit-font-smoothing: antialiased;
+	header {
+		margin-top: 1em;
+		width: 100vw;
+		color: @iplayer-pink;
+		text-align: center;
+		border-bottom: solid 2px @iplayer-pink;
+	}
+	a {
+		margin: 0.5ex;
+		padding: 0.3em;
+		background-color: @iplayer-medium;
+		height: 1.6em;
+		width: 1.6em;
+		color: @iplayer-front;
+		text-decoration: none;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		.trans(color 0.25s, background-color 0.25s;);
+		&:visited, &:active, &:focus {
+			color: @iplayer-front;
+		}
+		&:hover, &.current {
+			background-color: @iplayer-front;
+			color: @iplayer-medium;
+		}
+	}
+	#letter-nav {
+		line-height: 2em;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		width: 100vw;
+		.flex(@direction: row; @wrap: wrap);
+
+	}
+	#pagination {
+		width: 100vw;
+		text-align: center;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		a {
+			display: inline-block;
+			margin: 0;
+			height: 1em;
+		}
+		span {
+			margin-right: 1ex;
+			font-weight: bold;
+		}
+	}
+	#prog-container {
+		width: 100vw;
+		.flex(@direction: row; @wrap: wrap;);
+		li {
+			display: block;
+			position: relative;
+			width: 300px;
+			height: calc(~'168px + 4em');
+			padding: 1em;
+			margin: 0.5em;
+			border: solid 2px @iplayer-front;
+			cursor: pointer;
+			.trans(border-color 0.5s, color 0.5s;);
+			.shade {
+				pointer-events: none;
+				opacity: 0;
+				.trans(opacity 0.7s);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+				box-shadow: -10px 100px 100px #252525 inset;
+				p {
+					color: @iplayer-front;
+					padding: 1em;
+					line-height: 1.2em;
+					position: relative;
+					top: -0.5em;
+					.trans(top 0.4s 0.1s linear;);
+				}
+			}
+			&:hover, &:focus {
+				border-color: @iplayer-pink;
+				color: @iplayer-pink;
+				.shade {
+					opacity: 1;
+					p {
+						top: 0;
+					}
+				}
+			}
+			h3 {
+				margin-bottom: 0;
+				max-height: 2.5em;
+				overflow: hidden;
+			}
+			p {
+				text-align: justify;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+	footer {
+		width: 100vw;
+		text-align: center;
+		color: @iplayer-medium;
+	}
+}
