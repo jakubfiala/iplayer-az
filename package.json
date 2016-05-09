@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/jakubfiala/iplayer-az/issues"
   },
-  "homepage": "https://github.com/jakubfiala/iplayer-az#readme"
+  "homepage": "https://github.com/jakubfiala/iplayer-az#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "nodemon": "^1.9.2"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "pug": "^0.1.0"
+  }
 }
