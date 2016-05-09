@@ -9,7 +9,7 @@ const alphabetLength = 26;
 
 function renderList(res, data, numPages, currentLetter, currentPage) {
 	res.render('index', {
-		title: 'iPlayer Listing',
+		title: 'iPlayer A to Z',
 		letters: generateLetters(26),
 		programmes: data,
 		pages: generatePagination(numPages),
@@ -33,5 +33,11 @@ module.exports['letter'] = function(req, res) {
 module.exports['letter_page'] = function(req, res, next) {
 	loadData(req.params.letter, req.params.page, imgRes, function(data, numPages) {
 		renderList(res, data, numPages, req.params.letter, req.params.page);
+	});
+}
+
+module.exports['p404'] = function(req, res) {
+	res.render('404', {
+		title: 'iPlayer A to Z - Not Found'
 	});
 }
