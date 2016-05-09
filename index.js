@@ -33,3 +33,5 @@ var session = app.listen(app.get('port'), function() {
 exports.close = function() {
 	session.close();
 }
+
+exports.port = app.get('port');

@@ -1,7 +1,7 @@
 var request = require('request');
 var app = require('../index.js');
 
-const baseURI = 'http://localhost:3000';
+const baseURI = 'http://localhost:' + app.port;
 
 describe('App', function() {
 	afterAll(function() {
