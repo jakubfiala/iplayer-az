@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-	"start": "npm test && node index.js",
-	"dev": "npm test && nodemon index.js --watch . --watch views --watch src --watch lib"
+    "start": "npm test && node index.js",
+    "dev": "npm test && nodemon index.js --watch . --watch views --watch src --watch lib"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "less-middleware": "^2.1.0",
     "pug": "^0.1.0",
     "request": "^2.72.0"
   }
