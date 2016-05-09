@@ -27,7 +27,7 @@ app.get('/:letter/:page', server.letter_page);
 app.use(server.p404);
 
 var session = app.listen(app.get('port'), function() {
-	if (!__test) console.log('Server initialized.');
+	if (!__test) console.log('Server running at localhost:' + app.get('port'));
 });
 //make a close export function, so that we can close the server after testing
 exports.close = function() {
