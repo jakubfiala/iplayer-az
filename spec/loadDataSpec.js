@@ -3,18 +3,6 @@ describe('loadData', function() {
 
 	var	imgRes = '406x228';
 
-	it('calls a passed-in callback function that is passed an Array', function() {
-		var testObj = {
-			testFunc: function() {}
-		}
-
-		spyOn(testObj, 'testFunc');
-		loadData('C', 1, imgRes, testObj.testFunc);
-
-		expect(testObj.testFunc).toHaveBeenCalled();
-		expect(testObj.testFunc).toHaveBeenCalledWith(jasmine.any(Array));
-	});
-
 	it('returns an Array with at least one element', function(done) {
 		loadData('A', 1, imgRes, function(data) {
 			expect(data.length).toBeGreaterThan(0);
