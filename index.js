@@ -23,10 +23,7 @@ if (!__test) console.log('Defining routes...');
 app.get('/', server.root);
 app.get('/:letter', server.letter);
 app.get('/:letter/:page', server.letter_page);
-
-app.use(function(req, res) {
-	res.status(404).send('404: Page not found.');
-});
+app.use(server.p404);
 
 var session = app.listen(3000, function() {
 	if (!__test) console.log('Server initialized.');

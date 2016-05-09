@@ -37,7 +37,7 @@ module.exports['letter_page'] = function(req, res, next) {
 }
 
 module.exports['p404'] = function(req, res) {
-	res.render('404', {
+	res.status(404).render('404', {
 		title: 'iPlayer A to Z - Not Found'
 	});
 }
