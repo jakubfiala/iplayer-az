@@ -1,5 +1,5 @@
 var express = require('express');
-
+var server = require('./src/server/server.js');
 
 var app = express();
 
@@ -7,9 +7,10 @@ var app = express();
 var __test = global.jasmine;
 
 if (!__test) console.log('Defining routes...');
-app.get('/', function(req, res) {
-	res.status(200).send('Hello');
-});
+
+app.get('/', server.root);
+app.get('/:letter', server.letter);
+app.get('/:letter/:page', server.letter_page);
 
 app.use(function(req, res) {
 	res.status(404).send('404: Page not found.');

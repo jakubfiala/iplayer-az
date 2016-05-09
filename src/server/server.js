@@ -1,3 +1,5 @@
+var loadData = require('../../lib/loadData.js');
+
 function renderList(res, data, numPages, currentLetter, currentPage) {
 	res.send('Hello');
 }
