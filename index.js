@@ -6,8 +6,11 @@ var app = express();
 // check if we're in test mode
 var __test = global.jasmine;
 
-if (!__test) console.log('Defining routes...');
+if (!__test) console.log('Setting up server ...');
+app.set('views', './views');
+app.set('view engine', 'pug');
 
+if (!__test) console.log('Defining routes...');
 app.get('/', server.root);
 app.get('/:letter', server.letter);
 app.get('/:letter/:page', server.letter_page);

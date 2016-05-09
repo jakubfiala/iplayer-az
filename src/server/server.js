@@ -1,11 +1,22 @@
 var loadData = require('../../lib/loadData.js');
+var generateLetters = require('../../lib/generateLetters.js');
+var generatePagination = require('../../lib/generatePagination.js');
 
-function renderList(res, data, numPages, currentLetter, currentPage) {
-	res.send('Hello');
-}
 
 //this can be constant for the purposes of our layout
 const imgRes = '406x228';
+const alphabetLength = 26;
+
+function renderList(res, data, numPages, currentLetter, currentPage) {
+	res.render('index', {
+		title: 'iPlayer Listing',
+		letters: generateLetters(26),
+		programmes: data,
+		pages: generatePagination(numPages),
+		currentLetter,
+		currentPage
+	});
+}
 
 module.exports['root'] = function(req, res) {
 	loadData('A', 1, imgRes, function(data, numPages) {

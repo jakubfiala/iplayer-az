@@ -1,0 +1,33 @@
+html
+	head
+		title=title
+	body
+		header
+			h1 BBC iPlayer A-Z Listing
+		div(id='letter-nav')
+			each letter in letters
+				if letter == currentLetter
+					a(href='/'+letter+'/1' class='current') #{letter}
+				else
+					a(href='/'+letter+'/1') #{letter}
+
+		div(id='pagination')
+			span Page:
+			each page in pages
+				if page == currentPage
+					a(href='/'+currentLetter+'/'+page.toString() class='current') #{page}
+				else
+					a(href='/'+currentLetter+'/'+page.toString()) #{page}
+
+		div(id='prog-container')
+			each prog in programmes
+				li
+					if prog.images
+						img(src=prog.images.standard alt='iPlayer')
+					h3 #{prog.title}
+					div(class='shade')
+						if prog.synopses
+							p #{prog.synopses.small}
+
+		footer
+			p Copyright BBC 2016
