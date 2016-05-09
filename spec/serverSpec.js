@@ -5,5 +5,6 @@ describe('Server', function() {
 		expect(server.root).toEqual(jasmine.any(Function));
 		expect(server.letter).toEqual(jasmine.any(Function));
 		expect(server.letter_page).toEqual(jasmine.any(Function));
+		expect(server.p404).toEqual(jasmine.any(Function));
 	});
 });

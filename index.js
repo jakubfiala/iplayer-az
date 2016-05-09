@@ -31,7 +31,7 @@ app.use(function(req, res) {
 var session = app.listen(3000, function() {
 	if (!__test) console.log('Server initialized.');
 });
-
+//make a close export function, so that we can close the server after testing
 exports.close = function() {
 	session.close();
 }
